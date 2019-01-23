@@ -13,12 +13,12 @@ total = 0
 for Patient in os.listdir('.'):
     for Study in os.listdir(Patient):
         for Series in os.listdir(Patient + '/' + Study):
+            total += 1
             try:
                 path = "../Anonymized/" + Patient + '/' +\
                        Study + '/' + Series
                 os.makedirs(path)
                 print("os.makedirs:", path)
-                total += 1
             except:
                 print('failed to prepare anonymized dir "../Anonymized"')
                 pass
@@ -33,7 +33,7 @@ for Patient in os.listdir('.'):
         for Study in os.listdir(Patient):
             for Series in os.listdir(Patient + '/' + Study):
                 n += 1
-                print("Anonymizing: " +  Patient + '/' + Study + ", " + n + "/" + total)
+                print("Anonymizing: " +  Patient + '/' + Study + ", " + str(n) + "/" + str(total))
                 for file_name in os.listdir(Patient + '/' + Study + '/' + Series):
                     path = Patient + '/' + Study + '/' + Series + '/' + file_name
                     #print(path)
