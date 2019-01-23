@@ -10,12 +10,15 @@ import pydicom as dicom
 
 total = 0
 
+cwd = os.getcwd()
+root, cwd_name = cwd.rsplit("/", 1)
+
 for Patient in os.listdir('.'):
     for Study in os.listdir(Patient):
         for Series in os.listdir(Patient + '/' + Study):
             total += 1
             try:
-                path = "../Anonymized/" + Patient + '/' +\
+                path = "../Anonymized_" + cwd_name + "/" + Patient + '/' +\
                        Study + '/' + Series
                 os.makedirs(path)
                 print("os.makedirs:", path)
