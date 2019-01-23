@@ -52,7 +52,7 @@ for Patient in os.listdir('.'):
                         print('failed to anonymize')
                         pass
                     try:
-                        ds.save_as("../Anonymized/" + path)
+                        ds.save_as("../Anonymized_" + cwd_name + "/" + path)
                     except:
                         print('failed to save dicom file')
                         pass
